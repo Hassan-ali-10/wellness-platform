@@ -34,7 +34,7 @@ Before running this application, make sure you have:
 ### 1. Clone the Repository
 
 \`\`\`bash
-git clone <repository-url>
+git clone  https://github.com/Hassan-ali-10/wellness-platform.git
 cd wellness-platform
 \`\`\`
 
@@ -61,11 +61,8 @@ Or manually run the SQL scripts:
 # Create database
 psql -f scripts/01-create-database.sql
 
-# Create tables
-psql -d wellness_platform -f scripts/02-create-tables.sql
-
-# Seed initial data
-psql -d wellness_platform -f scripts/03-seed-data.sql
+# Create migrations
+node scripts/migrate.js --redo --reset
 \`\`\`
 
 ### 4. Environment Configuration
@@ -78,15 +75,6 @@ cp sampleEnv .env
 
 Update the \`.env\` file with your actual values:
 
-\`\`\`env
-DATABASE_URL=postgresql://username:password@localhost:5432/wellness_platform
-JWT_SECRET=superadmin2025
-MOCK_API_BASE_URL=http://localhost:3000
-NEXTAUTH_SECRET=your-nextauth-secret-here
-NEXTAUTH_URL=http://localhost:3000
-ADMIN_EMAIL=admin@wellness.com
-ADMIN_PASSWORD=admin123
-\`\`\`
 
 ### 5. Mock API Setup (Postman)
 pleas use the provided the export json config file
@@ -203,8 +191,6 @@ Query parameters for GET: \`clientId\`, \`upcoming\`, \`page\`, \`limit\`
 4. Protected routes verify token before processing requests
 
 ### Mock API Integration
-- Automatic fallback when mock API is unavailable
-- Background synchronization with external API
 - Error handling for network failures
 - Configurable API endpoints via environment variables
 
@@ -217,14 +203,7 @@ Query parameters for GET: \`clientId\`, \`upcoming\`, \`page\`, \`limit\`
 
 ### Environment Variables for Production
 
-\`\`\`env
-DATABASE_URL=postgresql://user:password@host:port/database
-JWT_SECRET=your-production-jwt-secret
-MOCK_API_BASE_URL=https://your-production-mock-api.com
-NEXTAUTH_SECRET=your-production-nextauth-secret
-NEXTAUTH_URL=https://your-domain.com
-\`\`\`
-
+use existing or setup accordingly..
 ### Build Commands
 
 \`\`\`bash
@@ -256,7 +235,6 @@ The application includes comprehensive error handling and validation:
 - Multi-admin support with role-based permissions
 - Email notifications for appointments
 - Calendar integration
-- Mobile app using React Native
 - Advanced reporting and analytics
 - Bulk operations for appointments
 
@@ -264,22 +242,21 @@ The application includes comprehensive error handling and validation:
 
 **Total Development Time: 8 hours**
 
-- Database design and setup: 1.5 hours
-- Authentication system: 1.5 hours
+- Database design and setup: 1 hours
+- Authentication system: 1 hours
 - API development: 2 hours
-- Frontend components: 2.5 hours
+- Frontend components: 3.5 hours
 - Integration and testing: 0.5 hours
 
 ## 🐛 Known Issues & Limitations
 
-1. Mock API integration depends on external service availability
-2. No real-time notifications (could be added with WebSockets)
-3. Limited to single timezone support
-4. No audit logging for admin actions
+1. No real-time notifications (could be added with WebSockets)
+2. Limited to single timezone support
+3. No audit logging for admin actions
 
 ## 📞 Support
 
-For questions or issues, please contact the development team or create an issue in the project repository.
+For questions or issues, please contact the development team (hassanali703@gmail.com) or create an issue in the project repository.
 
 ## 📄 License
 
