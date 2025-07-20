@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Next.js build
+.next/
+out/
+
+# Build artifacts
+dist/
+build/
+
+# Logs
+*.log
+
+# Env
+.env
+.env.*
+
+# OS
+.DS_Store
